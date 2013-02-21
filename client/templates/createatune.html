@@ -1,0 +1,57 @@
+<template name="createatune">
+  <div class="span8">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <input type="text" class="span8" placeholder="{{t "title"}}" />
+      </div>
+      <div class="control-group">
+        <textarea class="span6" placeholder="{{t "description"}}"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="span4">
+    <div class="well">
+      gg
+    </div>
+  </div>
+  <div class="span12">
+    <div id="unity-player"></div>
+  </div>
+  <div class="span12 tab-container">
+    <div class="vex-tabdiv" width="766" scale="0.75" editor="true" editor_width="300" editor_height="400"></div>
+    <div class="btn-toolbar">
+      <div class="btn-group">
+        <a id="play" class="btn btn-small" href="javascript: void(0);"><i class="icon-play"></i> Play</a>
+      </div>
+      <div class="btn-group picker-menu">
+        <a id="tabType" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel="tab"><i class="icon-music"></i> Tab <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="tabType">
+          <li><a href="javascript: void(0);" rel="tab">Tablature</a></li>
+          <li><a href="javascript: void(0);" rel="single">Single Staff</a></li>
+          <li><a href="javascript: void(0);" rel="grand">Grand Staff</a></li>
+        </ul>
+      </div>
+      <div class="btn-group picker-menu">
+        <a id="tempo" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel="120"><i class="icon-time"></i> 120 <span class="caret"></span></a>
+        <ul class="dropdown-menu " aria-labelledby="tempo">
+          <li><a href="javascript: void(0);" rel="30">30 bpm</a></li>
+          <li><a href="javascript: void(0);" rel="60">60 bpm</a></li>
+          <li><a href="javascript: void(0);" rel="90">90 bpm</a></li>
+          <li><a href="javascript: void(0);" rel="120">120 bpm</a></li>
+          <li><a href="javascript: void(0);" rel="160">160 bpm</a></li>
+          <li><a href="javascript: void(0);" rel="200">200 bpm</a></li>
+          <li><a href="javascript: void(0);" rel="240">240 bpm</a></li>
+          <li><a href="javascript: void(0);" rel="300">300 bpm</a></li>
+        </ul>
+      </div>
+      <div class="btn-group">
+        <a id="tabType" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel=""><i class="icon-th-large"></i> Misc <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="">
+          <!--<li><a href="#" class="import-midi">Import MIDI</a></li>-->
+          <li><a href="#" class="save-midi">Save as MIDI</a></li>
+        </ul>
+      </div>
+    </div>
+    <textarea id="notes-editor" placeholder="Edit Me!"></textarea>
+  </div>
+</template>
