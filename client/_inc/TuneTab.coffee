@@ -107,13 +107,26 @@ class TuneTab
         duration: TuneTab.durations[d]
         type: if note.noteType is "n" then "note" else "rest"
         keys: []
+      ###
       for key in note.keyProps
         noteGroup.keys.push
           pitch: key.int_value + 12
+      ###
+      if note.playNote
+        for key in note.playNote
+          noteGroup.keys.push
+            pitch: @getPitchFromText key
       noteGroups.push noteGroup
     track.noteGroups = noteGroups
     track
 
+  getPitchFromText: (text) ->
+    letter = text.charAt(0)
+    number = text.slice(-1)
+    t = text.charAt(1)
+    accidental = if t is "#" then 1 else if t is "@" then -1 else 0
+    pitch = MIDI.keyToNote[letter+number]
+    pitch + accidental
 
   ###
   Returns a midi file from staves
