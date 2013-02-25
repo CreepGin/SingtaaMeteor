@@ -1,7 +1,7 @@
 <head>
-  <title>MapleTunes</title>
+  <title>Singtaa</title>
   <meta charset="utf-8">
-
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
   <!-- Fav and touch icons -->
   <link rel="shortcut icon" href="/img/favicon.ico">
 </head>
@@ -9,24 +9,24 @@
 <body>
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
-      <div class="container">
+      <div class="container-padder">
         {{> nav}}
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container-padder">
     <div class="row">
       {{#page_view}}{{/page_view}}
     </div>
   </div>
   <hr>
   <footer>
-    <p>© MapleTunes.com 2013</p>
+    <p>© Singtaa.com 2013</p>
   </footer>
 </body>
 
 <template name="nav">
-  <a class="brand local" href="/">MapleTunes</a>
+  <a class="brand local" href="/">Singtaa</a>
   <p class="navbar-text pull-right">
     {{loginButtons align="right"}}
   </p>

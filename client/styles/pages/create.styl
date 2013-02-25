@@ -1,0 +1,109 @@
+div.vex-tabdiv .editor
+  display none
+.CodeMirror
+  width: 770px
+  height 300px
+  padding 4px
+  float left
+  border 1px solid #c5c5c5
+  box-shadow inset 0 0 8px rgba(0, 0, 0, 0.14);
+.activeline 
+  background: white !important
+  border-radius 4px
+.CodeMirror-selected
+  background: #FF6600 !important
+.editor-error
+  display: none
+div[data-module-name="editor"]
+  .btn-toolbar
+    margin-top 0
+    margin-bottom -1px
+    .btn-group
+      margin-left -1px
+      &:first-child
+        margin-left 0px
+        .btn
+          border-top-left-radius 5px
+      &:last-child
+        .btn
+          border-top-right-radius 5px
+
+.module-controls
+  .help
+    margin-top: 10px;
+    padding-top: 4px;
+    border-top: 1px dotted #CCCCCC
+    font-size: 12px
+    i
+      margin-top: 2px;
+      display: block
+      float: left
+    small
+      margin-left: 18px
+      display: block
+  ul
+    margin: 0
+    list-style-type: none;
+    border-right 1px solid #CCCCCC
+    li
+      text-align: left
+      padding: 4px
+      cursor pointer
+      font-size: 11px
+      line-height: 18px
+      &:hover
+        background: #444;
+        color: #fff;
+        background-image: -webkit-linear-gradient(top,#444 0,#333 100%);
+      &[data-enabled="false"]
+        color: gray
+        .thumb
+          background-color: gray
+          color: gray
+      .thumb
+        margin-top: -2px;
+        height 18px
+        width 18px
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 6px
+      .text
+        margin-right: 6px
+.modules-container
+  margin-left: 162px
+.module
+  width: 100%
+  //height: 400px
+  margin-bottom: 20px;
+  //background-color: white
+
+.color1
+  background-color: #DED4B9
+  color: #DED4B9
+.color2
+  background-color: #46433A
+  color: #46433A
+.color3
+  background-color: #CE534D
+  color: #A9A52A
+.color4
+  background-color: #64B6B1
+  color: #64B6B1
+.color5
+  background-color: #B1BD40
+  color: #B1BD40
+.color6
+  background-color: #564A62
+  color: #564A62
+.color7
+  background-color: #3572C1
+  color: #3572C1
+.color8
+  background-color: #2A5BA9
+  color: #2A5BA9
+.color9
+  background-color: #3F2AA9
+  color: #3F2AA9
+.color10
+  background-color: #7B2AA9
+  color: #7B2AA9

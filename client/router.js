@@ -31,6 +31,7 @@ var MapleRouter = Backbone.Router.extend({
     "charts": "charts",
     "forums": "forums",
     "roadmap": "roadmap",
+    "create": "create",
     "createatune": "createatune",
     "*action": "home" //Everything not matched routes to Home right now; need to implememnt 404's later
   },

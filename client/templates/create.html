@@ -1,0 +1,80 @@
+<template name="create">
+  <div class="span2 module-controls">
+    <ul class="sortable">
+      <li data-module-name="player" data-align="left" data-enabled="false"><span class="thumb color7"></span><span class="text">Player</span></li>
+      <li data-module-name="info" data-align="left" data-enabled="true"><span class="thumb color1"></span><span class="text">Info</span></li>
+      <li data-module-name="comments" data-align="left" data-enabled="true"><span class="thumb color6"></span><span class="text">Comments</span></li>
+      <li data-module-name="editor" data-align="right" data-enabled="true"><span class="thumb color3"></span><span class="text">Editor</span></li>
+      <li data-module-name="score" data-align="right" data-enabled="false"><span class="thumb color4"></span><span class="text">Score</span></li>
+      <li data-module-name="youtube" data-align="right" data-enabled="false"><span class="thumb color5"></span><span class="text">Youtube</span></li>
+    </ul>
+    <div class="help">
+      <i class="icon-arrow-up"></i>
+      <small>Click row to align.</small>
+      <small>Click square to toggle.</small>
+      <small>Drag to re-order.</small>
+    </div>
+  </div>
+  <div class="modules-container">
+    <div class="span10 left-block">
+      <div class="module clearfix" data-module-name="player">
+        <div class="unity-player"></div>
+      </div>
+      <div class="module clearfix" data-module-name="info">Info</div>
+      <div class="module clearfix" data-module-name="comments">Comments</div>
+    </div>
+    <div class="span10 right-block">
+      <div class="module clearfix" data-module-name="editor">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <a id="play" class="btn btn-small" href="javascript: void(0);"><i class="icon-play"></i> Play</a>
+          </div>
+          <div class="btn-group picker-menu">
+            <a id="tabType" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel="tab"><i class="icon-music"></i> Tab <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="tabType">
+              <li><a href="javascript: void(0);" rel="tab">Tablature</a></li>
+              <li><a href="javascript: void(0);" rel="single">Single Staff</a></li>
+              <li><a href="javascript: void(0);" rel="grand">Grand Staff</a></li>
+            </ul>
+          </div>
+          <div class="btn-group picker-menu">
+            <a id="tempo" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel="120"><i class="icon-time"></i> 120 bpm <span class="caret"></span></a>
+            <ul class="dropdown-menu " aria-labelledby="tempo">
+              <li><a href="javascript: void(0);" rel="30">30 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="60">60 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="90">90 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="120">120 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="160">160 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="200">200 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="240">240 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="300">300 bpm</a></li>
+            </ul>
+          </div>
+          <div class="btn-group picker-menu">
+            <a id="beat" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel="4"><i class="icon-headphones"></i> Quarter Beat <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="beat">
+              <li><a href="javascript: void(0);" rel="1">Whole Beat</a></li>
+              <li><a href="javascript: void(0);" rel="2">Half Beat</a></li>
+              <li><a href="javascript: void(0);" rel="4">Quarter Beat</a></li>
+              <li><a href="javascript: void(0);" rel="8">Eighth Beat</a></li>
+              <li><a href="javascript: void(0);" rel="16">Sixteenth Beat</a></li>
+              <li><a href="javascript: void(0);" rel="32">Thirty 2nd Beat</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <a id="tabType" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel=""><i class="icon-th-large"></i> Misc <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="">
+              <!--<li><a href="#" class="import-midi">Import MIDI</a></li>-->
+              <li><a href="#" class="save-midi">Save as MIDI</a></li>
+            </ul>
+          </div>
+        </div>
+        <textarea id="notes-editor" placeholder="Edit Me!"></textarea>
+      </div>
+      <div class="module clearfix" data-module-name="score">
+        <div class="vex-tabdiv" width="780" scale="1.0" editor="true" editor_width="300" editor_height="400"></div>
+      </div>
+      <div class="module clearfix" data-module-name="youtube">Youtube</div>
+    </div>
+  </div>
+</template>
