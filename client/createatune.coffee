@@ -1,9 +1,3 @@
-tuneTab = new TuneTab()
-timeoutID = undefined
-editor = undefined
-hlLine = undefined
-tabDiv = undefined
-u = undefined
 
 Template.createatune.rendered = ->
   tabDiv = new Vex.Flow.TabDiv($(".vex-tabdiv"))
@@ -82,7 +76,7 @@ global.pageInits.createatune = ->
     Meteor.Router.navigate "",
       trigger: true
     return
-
+###
 Play = ->
   file = GetMidiFileFromTab()
 
@@ -109,46 +103,6 @@ GetMidiFileFromTab = ->
   file = new Midi.File
   file.addTrack track for track in tracks
   file
-
-RedrawTab = ->
-  that = this
-  window.clearTimeout timeoutID  if timeoutID
-  timeoutID = window.setTimeout(->
-    
-    # Draw only if code changed
-    transformedCode = tuneTab.transformCode(GetCodeInCurrentPage())
-    unless tabDiv.code is transformedCode
-      tabDiv.code = transformedCode
-      tabDiv.redraw()
-  , 200)
-  
-  #Editor Line Highlighting
-  cur = editor.getLineHandle(editor.getCursor().line)
-  unless cur is hlLine
-    editor.removeLineClass hlLine, "background", "activeline"
-    hlLine = editor.addLineClass(cur, "background", "activeline")
-
-GetCodeInCurrentPage = ->
-  selection = editor.getSelection()
-  return selection  if selection isnt ""
-  allLines = editor.getValue().split("\n")
-  cursorLine = editor.getCursor().line
-  newLines = []
-  i = cursorLine - 1
-
-  while i >= 0
-    line = allLines[i].trim()
-    break  if _(line).startsWith("---")
-    newLines.unshift line
-    i--
-  j = cursorLine
-
-  while j < allLines.length
-    line = allLines[j].trim()
-    break  if _(line).startsWith("---")
-    newLines.push line
-    j++
-  newLines.join "\n"
 
 UnityFallback = ->
   #MIDI.loader = new widgets.Loader

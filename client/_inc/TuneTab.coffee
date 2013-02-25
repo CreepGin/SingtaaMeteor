@@ -10,9 +10,18 @@ class TuneTab
     "64": 0.0625
     "-": 0
 
+  @durations:
+    "w": 1
+    "h": 2
+    "q": 4
+    "8": 8
+    "16": 16
+    "32": 32
+
   config:
     tabType: "tab"
-    tempo: "120"
+    tempo: 120
+    beat: 4
     unityStatus: "unloaded"
     midiJsStatus: "unloaded"
 
@@ -77,10 +86,34 @@ class TuneTab
       else if @config.tabType is "grand"
         staff = "tabstave notation=true tablature=false" + (if index%2 is 1 then " clef=bass" else "") + "\n" + staff
 
-    res = "options space=10\n\n"
+    res = "options width=960 scale=0.75 space=10\n\n"
     res += staves.join("\n\n")
     #log res
     res
+
+  getTrackFromStaves: (staves) ->
+    track = 
+      bpm: @config.tempo
+      beat: @config.beat
+    notes = staves.reduce (memo, staff) ->
+      memo.concat staff.note_notes
+    , []
+    noteGroups = []
+    for note in notes
+      d = note.duration
+      if d is "b" #TODO handle special bars in the future
+        continue
+      noteGroup = 
+        duration: TuneTab.durations[d]
+        type: if note.noteType is "n" then "note" else "rest"
+        keys: []
+      for key in note.keyProps
+        noteGroup.keys.push
+          pitch: key.int_value + 12
+      noteGroups.push noteGroup
+    track.noteGroups = noteGroups
+    track
+
 
   ###
   Returns a midi file from staves

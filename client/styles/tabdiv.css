@@ -9,6 +9,7 @@ div.vex-tabdiv .vex-canvas {
   background: #F5F5F5;
   border: 10px solid white;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  padding: 0 20px;
 }
 
 div.vex-tabdiv .editor {
