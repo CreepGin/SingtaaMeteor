@@ -1,0 +1,154 @@
+<template name="compose">
+  <div class="span2 module-controls">
+    {{#isolate}}
+    {{> userside}}
+    {{/isolate}}
+    {{#isolate}}
+    {{#if isEditableScore}}
+    <div class="controls">
+      <button class="btn btn-main save">Save</button>
+      <div class="switch switch-large" data-on-label="Public" data-off-label="Private" data-on="danger" data-off="info">
+        <input id="public" type="checkbox" checked />
+      </div>
+    </div>
+    {{/if}}
+    {{/isolate}}
+  </div>
+  <div class="modules-container">
+    <div class="module-group clearfix">
+      {{#isolate}}
+      {{#with msg}}
+      <div class="alert alert-block alert-{{type}} fade in">
+        <p>{{t text}}</p>
+      </div>
+      {{/with}}
+      {{/isolate}}
+      {{#isolate}}
+      {{#if isEditableScore}}
+      <div class="info">
+        <div class="input-prepend">
+          <span class="add-on">Title:</span>
+          <input class="span8" id="title" type="text" placeholder="{{t "e.g. fur elise piano score"}}" value="{{myScore.title}}">
+        </div>
+        <textarea class="span8" id="description" rows="3" placeholder="{{t "description"}}">{{myScore.description}}</textarea>
+        <div class="input-prepend">
+          <span class="add-on">Tags:</span>
+          <input class="span8" id="tags" type="text" placeholder="{{t "comma (\",\") separated"}}" value="{{tags2str myScore.tags}}">
+        </div>
+      </div>
+      {{/if}}
+      {{/isolate}}
+      {{#unless isEditableScore}}
+      <div class="unity-controls clearfix prefix">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <a class="btn btn-small reload" href="javascript: void(0);"><i class="icon-refresh"></i> Reload</a>
+          </div>
+        </div>
+      </div>
+      {{/unless}}
+      {{#constant}}
+      <div class="unity-player">
+        
+      </div>
+      <div class="broken-unity hidden">
+        <span class="install">Install</span>
+      </div>
+      {{/constant}}
+      {{#if isEditableScore}}
+      <div class="unity-controls clearfix">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <a class="btn btn-small reload" href="javascript: void(0);"><i class="icon-refresh"></i> Reload</a>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      {{#isolate}}
+      {{#unless isEditableScore}}
+      <div class="info-nonedit">
+        <h4 class="title">{{myScore.title}}</h4>
+        <p class="description">{{myScore.description}}</p>
+        <div class="tags">
+          <span>Tags:</span>
+          {{#each myScore.tags}}
+          <a href="/tag/{{this}}">{{this}}</a>
+          {{/each}}
+        </div>
+      </div>
+      {{/unless}}
+      {{/isolate}}
+    </div>
+    <div class="module-group clearfix">
+      {{#constant}}
+      <!-- Editor -->
+      <div class="editor clearfix">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <a id="play" class="btn btn-small" href="javascript: void(0);"><i class="icon-play"></i> Play</a>
+          </div>
+          <div class="btn-group picker-menu">
+            <a id="tabType" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel="tab"><i class="icon-music"></i> {{t "Tablature"}} <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="tabType">
+              <li><a href="javascript: void(0);" rel="tab">{{t "Tablature"}}</a></li>
+              <li><a href="javascript: void(0);" rel="single">{{t "Single Staff"}}</a></li>
+              <li><a href="javascript: void(0);" rel="grand">{{t "Grand Staff"}}</a></li>
+            </ul>
+          </div>
+          <div class="btn-group picker-menu">
+            <a id="tempo" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel="120"><i class="icon-time"></i> 120 bpm <span class="caret"></span></a>
+            <ul class="dropdown-menu " aria-labelledby="tempo">
+              <li><a href="javascript: void(0);" rel="30">30 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="60">60 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="90">90 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="120">120 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="160">160 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="200">200 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="240">240 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="300">300 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="360">360 bpm</a></li>
+              <li><a href="javascript: void(0);" rel="420">420 bpm</a></li>
+            </ul>
+          </div>
+          <div class="btn-group picker-menu">
+            <a id="beat" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel="4"><i class="icon-headphones"></i> Quarter Beat <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="beat">
+              <li><a href="javascript: void(0);" rel="1">Whole Beat</a></li>
+              <li><a href="javascript: void(0);" rel="2">Half Beat</a></li>
+              <li><a href="javascript: void(0);" rel="4">Quarter Beat</a></li>
+              <li><a href="javascript: void(0);" rel="8">Eighth Beat</a></li>
+              <li><a href="javascript: void(0);" rel="16">Sixteenth Beat</a></li>
+              <li><a href="javascript: void(0);" rel="32">Thirty 2nd Beat</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <a id="tabType" class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript: void(0);" rel=""><i class="icon-th-large"></i> Misc <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="">
+              <!--<li><a href="#" class="import-midi">Import MIDI</a></li>-->
+              <li><a href="#" class="convert-xml">Convert MusicXML</a></li>
+            </ul>
+          </div>
+        </div>
+        <textarea id="notes-editor" placeholder="Edit Me!"></textarea>
+      </div>
+      <!-- Score -->
+      <div class="score">
+        <div class="controls">
+          <div class="left">
+            <span class="add has-title" data-toggle="tooltip" data-replacement="top" title="Add new page">Add</span>
+            <span class="del has-title" data-toggle="tooltip" data-replacement="top" title="Delete current page">Del</span>
+          </div>
+          <div class="right">
+            <div class="switch switch-mini has-title" title="{{t "Turn off for better performance"}}" data-on="danger" data-off="info">
+              <input type="checkbox" checked />
+            </div>
+          </div>
+        </div>
+        <p class="text-center"><i class="icon-chevron-left"></i> <span class="current-page">1</span>/<span class="max-pages">1</span> <i class="icon-chevron-right"></i></p>
+        <div class="vex-tabdiv"></div>
+      </div>
+      {{/constant}}
+    </div>
+  </div>
+  {{> myModal}}
+</template>

@@ -1,0 +1,39 @@
+<template name="forums">
+  <div class="forums common-page">
+    <div class="holder">
+      {{#each forums}}
+        <div class="forum-item">
+          <div class="meta-right">
+            <div>
+              <span>
+                <strong>{{t "Last Thread"}}:</strong>
+                {{#if thread}}
+                <a href="/thread/{{thread._id}}/{{slugifyText thread.title}}/">{{thread.title}}</a>
+                {{else}}
+                --
+                {{/if}}
+              </span>
+            </div>
+            <div>
+              <span>
+                {{#if thread}}
+                {{timeAgo thread.createdAt}}
+                {{/if}}
+              </span>
+              <span>
+                {{t "by"}}:
+                {{#if thread.user}}
+                <a href="/user/{{thread.user.username}}">{{thread.user.username}}</a>
+                {{else}}
+                --
+                {{/if}}
+              </span>
+            </div>
+          </div>
+          <h4 class="name"><a href="/forum/{{slug}}/">{{t name}}</a></h4>
+          <p class="description">{{t description}}</p>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

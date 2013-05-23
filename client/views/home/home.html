@@ -1,0 +1,49 @@
+<template name="home">
+  <div class="home">
+    <div class="span2">
+      {{> userside}}
+    </div>
+    <div class="main-container holder">
+      <div class="top-block clearfix">
+        <h4>Most Viewed</h4>
+        {{#isolate}}
+        {{#each mostViewed}}
+        {{> homeScoreItem this}}
+        {{/each}}
+        {{/isolate}}
+      </div>
+      <div class="bottom-block clearfix">
+        <div class="left clearfix">
+          <h4>Latest Scores</h4>
+          {{#isolate}}
+          {{#each latest}}
+          {{> homeScoreItem this}}
+          {{/each}}
+          {{/isolate}}
+        </div>
+        <div class="right clearfix">
+          <h4>Currently Being Viewed</h4>
+          {{#isolate}}
+          {{#each beingViewed}}
+          {{> homeScoreItem this}}
+          {{/each}}
+          {{/isolate}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="homeScoreItem">
+<div class="item clearfix">
+  <div class="vote-controls"></div>
+  <div class="content">
+    <a href="/score/{{_id}}" class="title" title="{{title}}">{{title}}</a>
+    <div class="views">{{formatNumber views}} {{t "views"}}</div>
+    <div class="user">
+      {{t "by"}}
+      <a href="/user/{{user.username}}" class="username">{{user.username}}</a>
+    </div>
+  </div>
+</div>
+</template>

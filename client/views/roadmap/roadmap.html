@@ -1,0 +1,32 @@
+<template name="roadmap">
+  <div class="roadmap">
+    <table class="dual">
+      <tr>
+        <td>
+          <h2>Technical</h2>
+          {{#each techItems}}
+            <p>
+              <span class="controls">
+                <i class="icon-thumbs-up"></i>
+                <i class="icon-thumbs-down"></i>
+              </span>
+              {{this}}
+            </p>
+          {{/each}}
+        </td>
+        <td>
+          <h2>Non-Technical</h2>
+          {{#each nontechItems}}
+            <p>
+              <span class="controls">
+                <i class="icon-thumbs-up"></i>
+                <i class="icon-thumbs-down"></i>
+              </span>
+              {{this}}
+            </p>
+          {{/each}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</template>

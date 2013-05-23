@@ -1,0 +1,17 @@
+<template name="myModal">
+  <!-- Modal -->
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Enter MusicXML</h3>
+    </div>
+    <div class="modal-body">
+      Please note that your editor will be overriden with the converted MusicXML score.
+      <textarea id="modal-textarea"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-main">Convert</button>
+    </div>
+  </div>
+</template>

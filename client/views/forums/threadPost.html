@@ -1,0 +1,31 @@
+<template name="threadPost">
+  <div class="threadPost common-page">
+    <h3>{{t "Create a New Thread"}} - <a href="/forum/{{forum.slug}}/">{{t forum.name}}</a></h3>
+    <div class="holder">
+      <div class="input-prepend">
+        <span class="add-on">{{t "Title"}}:</span>
+        <input class="span8" id="title" type="text" value="{{thread.title}}">
+      </div>
+      <textarea class="span10" id="body" rows="3" placeholder="{{t "Markdown is supported"}}">{{thread.body}}</textarea>
+      <div class="preview-divider panel-text">Preview:</div>
+      <div>
+        {{#isolate}}
+        {{#markdown}}
+        {{get_session "threadPreview"}}
+        {{/markdown}}
+        {{/isolate}}
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-main save">{{t "Save Thread"}}</button>
+      <a href="/forum/{{forum.slug}}/"><button class="btn">{{t "Discard"}}</button></a>
+    </div>
+    {{#isolate}}
+    {{#with msg}}
+    <div class="alert alert-block alert-{{type}} fade in">
+      <p>{{t text}}</p>
+    </div>
+    {{/with}}
+    {{/isolate}}
+  </div>
+</template>

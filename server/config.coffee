@@ -1,0 +1,1 @@
+Meteor.AppCache.config onlineOnly: [ "/soundfont/", "/synth/SingtaaPlayer.unity3d" ]

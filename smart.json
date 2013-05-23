@@ -1,0 +1,19 @@
+{
+  "meteor": {
+    "git": "https://github.com/CreepGin/meteor.git"
+  },
+  "packages": {
+    "router": {},
+    "validation": {},
+    "HTML5-History-API": {},
+    "moment": {},
+    "gravatar": {},
+    "accounts-ui-bootstrap-dropdown": {},
+    "pretty-checkable": {},
+    "bootboxjs": {},
+    "x-editable-bootstrap": {},
+    "bootstrap-switch": {},
+    "accounting": {},
+    "handlebar-helpers": {}
+  }
+}

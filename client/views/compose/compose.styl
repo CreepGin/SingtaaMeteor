@@ -1,0 +1,156 @@
+.modules-container
+  margin-left: 160px
+.module-controls
+  .controls
+    //border-right: 1px solid #ccc
+    margin-right: 10px
+    font-size: 12px
+    border-top: 1px solid #e2e2e2;
+    padding-top: 8px;
+    text-align: right
+    button
+      width: 120px
+    .save
+      margin-bottom: 6px
+    .view-score
+      margin-bottom: 6px
+    .switch
+      span.switch-large, label.switch-large
+        padding-top: 4px;
+        font-size: 12px;
+        padding-bottom: 2px;
+.module-group
+  float: left
+  margin-right: 14px
+  .alert
+    width: 729px
+.info, .info-nonedit
+  background-color: #F6F6F6
+  padding: 8px
+  border: 1px solid #ccc
+  border-bottom: none
+  width: 762px
+  textarea
+    margin-bottom: 5px
+.info-nonedit
+  background-color: white
+  border: 1px solid #ccc
+  padding-top: 0
+.editor, .unity-controls
+  margin-bottom: 14px
+  .btn-toolbar
+    margin-top 0
+    margin-bottom -1px
+    .btn-group
+      margin-left -1px
+      .btn
+        font-weight bold
+        padding-top 4px
+        border-radius 0
+      &:first-child
+        margin-left 0px
+        .btn
+          //border-top-left-radius 5px
+      &:last-child
+        .btn
+          //border-top-right-radius 5px
+.unity-controls.prefix
+  margin-bottom: 0
+.unity-player
+  width: 780px
+  height: 400px
+.broken-unity
+  width: 780px
+  height: 280px
+  padding-top: 120px
+  background: url("/img/broken-unity.jpg")
+  .install
+    width: 200px
+    padding: 20px
+    margin: 0 auto
+    display: block
+    text-align: center
+    background-color: rgba(0, 0, 0, 0.4)
+    border-radius: 8px
+    cursor: pointer
+    font-size: 40px
+    color: white
+.unity-controls
+  border: 1px solid #ccc
+  height: 26px
+  .btn-group
+    width: 50%
+    .btn
+      width: 758px
+      border-bottom: none
+      border-top: none
+    &:first-child
+      .btn
+        border-left: none
+    &:last-child
+      .btn
+        border-right: none
+
+.score
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  background-color: white
+  width: 780px
+  position: relative
+  .controls
+    .left
+      position: absolute
+      top: 5px
+      left: 10px
+      span
+        font-size: 10px
+        border-radius: 4px
+        border: 1px solid #ccc
+        margin-right: 2px
+        cursor: pointer
+        padding: 4px 8px
+        background-color: rgba(0, 0, 0, 0.05)
+        &:hover
+          background-color: rgba(0, 0, 0, 0.1)
+    .right
+      position: absolute
+      top: 5px
+      right: 10px
+      text-align: right
+      button
+        font-size: 10px
+        padding: 0 6px
+
+  p
+    text-align: center
+    padding: 0
+    margin: 0
+    padding-top: 6px
+    padding-bottom: 6px
+    i
+      cursor: pointer
+      transition: opacity 0.4s ease;
+      &:hover
+        opacity: 1.0
+
+
+//Overrides
+div.vex-tabdiv .editor
+  display none
+.CodeMirror
+  width: 770px
+  height: 300px
+  padding 4px
+  float left
+  border 1px solid #c5c5c5
+  box-shadow inset 0 0 8px rgba(0, 0, 0, 0.14);
+.activeline 
+  background: white !important
+  border-radius 4px
+.CodeMirror-selected
+  background: #FF6600 !important
+.CodeMirror-scroll
+  //overflow-y: hidden;
+  //overflow-x: auto;
+  height: 300px
+.editor-error
+  display: none

@@ -1,0 +1,67 @@
+<head>
+  <title>Singtaa</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <!-- Fav and touch icons -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+</head>
+
+<body>
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container-padder">
+        {{> nav}}
+      </div>
+    </div>
+  </div>
+  <div class="container-padder">
+    <div class="row">
+      {{#isolate}} 
+      {{renderPage}}
+      {{/isolate}} 
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <p>© Singtaa.com 2013 </p>
+  </footer>
+  {{#isolate}} {{> init}} {{/isolate}} 
+</body>
+
+<template name="nav">
+  <a class="brand local has-title" title="{{t "Under Heavy Development"}}" data-toggle="tooltip" data-placement="bottom" href="/">
+    Singtaa
+    <span class="alpha-note">{{t "alpha"}}</span>
+  </a>
+  <p class="navbar-text pull-right">
+    {{loginButtons align="right"}}
+  </p>
+  <ul class="nav lang-menu pull-right">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="modern-pics">w</span> <b class="caret"></b></a>
+        <ul class="dropdown-menu lang-picker">
+          <li><a href="#" data-lang="en">English</a></li>
+          <li><a href="#" data-lang="cht">繁體中文</a></li>
+          <li><a href="#" data-lang="chs">简体中文</a></li>
+          <li class="divider"></li>
+          <li><a href="#" data-lang="more">More...</a></li>
+        </ul>
+    </li>
+  </ul>
+  
+  <ul class="nav">
+    {{#each navLinks}}
+    <li class="{{#if active}}active{{/if}}"><a class="page-link" href="{{href}}">{{t name}}</a></li>
+    {{/each}}
+  </ul>
+  <form class="form-search">
+    <div class="input-append">
+      <input type="text" class="span4 search-query" placeholder="e.g. fur elise">
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+</template>
+
+<template name="init">
+
+</template>

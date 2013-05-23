@@ -1,0 +1,35 @@
+.forum
+  h3
+    margin: 0
+    margin-bottom: 4px
+  .post-btn
+    float: right
+  .holder
+    .thread
+      cursor: pointer
+      border-left: 6px solid #ccc
+      border-right: 6px solid transparent
+      &:hover
+        border-left: 6px solid #d9230f
+        border-right: 6px solid #d9230f
+      &:last-child .inner
+        border-bottom: none
+      .inner
+        border-bottom: 1px dashed #ccc
+        padding: 8px 10px
+        h4
+          margin: 0
+          .sticky
+            background-color: #777
+            padding: 1px 4px
+            border-radius: 4px
+            border: 1px solid #555
+            color: white
+            font-weight: normal
+            font-size: 14px
+        .badge
+          margin-top: 10px
+        .meta
+          font-size: 12px
+    >.sticky
+      background: url("/img/fabric_of_squares_gray.png")

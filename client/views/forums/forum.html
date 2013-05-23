@@ -1,0 +1,31 @@
+<template name="forum">
+  <div class="forum common-page">
+    <div class="post-btn">
+      <a href="/forum/{{forum.slug}}/post/"><button class="btn btn-main">New Thread</button></a>
+    </div>
+    <h3>{{forum.name}}</h3>
+    <div class="holder">
+      {{#each stickyThreads}}
+      {{> _thread this}}
+      {{/each}}
+      {{#each threads}}
+      {{> _thread this}}
+      {{/each}}
+    </div>
+  </div>
+</template>
+
+<template name="_thread">
+  <div class="thread {{#if $eq type "sticky"}}sticky{{/if}}">
+    <div class="inner">
+      <span class="badge pull-right">{{replies}}</span>
+      <h4>
+        {{#if $eq type "sticky"}}
+        <span class="sticky">Sticky</span>
+        {{/if}}
+        <a href="/thread/{{_id}}/{{slugifyText title}}/">{{title}}</a>
+      </h4>
+      <div class="meta">by <a class="user-link" href="/user/{{user.username}}">{{user.username}}</a>, {{timeAgo createdAt}}</div>
+    </div>
+  </div>
+</template>

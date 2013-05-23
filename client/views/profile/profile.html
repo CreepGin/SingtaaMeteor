@@ -1,0 +1,19 @@
+<template name="profile">
+  <div class="span2 profile-meta">
+    <div>
+      <div class="gravatarThumb">
+        <a href="/u/{{user.username}}"><img src="{{gravatarUrl}}" /></a>
+      </div>
+      <div class="username">
+        <a href="/u/{{user.username}}">{{user.username}}</a>
+      </div>
+      <ul>
+        <li><strong>Joined On:</strong></li>
+        <li>{{createdAt}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="modules-container">
+    
+  </div>
+</template>
