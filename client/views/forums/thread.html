@@ -1,0 +1,32 @@
+<template name="thread">
+  <div class="thread common-page">
+    <ul class="breadcrumb">
+      <li><a href="/forums">Forums</a> <span class="divider">/</span></li>
+      <li><a href="/forum/{{forum.slug}}/">{{forum.name}}</a> <span class="divider">/</span></li>
+      <li class="active">{{thread.title}}</li>
+    </ul>
+    {{#with thread}}
+    <div class="title">
+      <span class="topic">{{t "TOPIC"}}:</span>
+      <h3>{{title}}</h3>
+    </div>
+    <div class="controls">
+      <div class="pagination">
+        <ul>
+          <li class="disabled"><a href="#">&laquo;</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li class=""><a href="#">2</a></li>
+          <li class=""><a href="#">&raquo;</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-main">ADD A REPLY</button>
+    </div>
+    <div class="holder">
+      <div class="user-panel">
+        
+      </div>
+      {{body}}
+    </div>
+    {{/with}}
+  </div>
+</template>

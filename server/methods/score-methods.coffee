@@ -46,7 +46,7 @@ Meteor.methods
         $set: data
       return data.id
 
-    data.updatedAt = data.createdAt = data.viewedAt = new Date()
+    data.updatedAt = data.createdAt = data.viewedAt = data.commentedAt = new Date()
     data.views = data.comments = data.upVotes = data.downVotes = 0
     data.userId = this.userId
     Scores.insert data

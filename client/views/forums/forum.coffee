@@ -8,7 +8,14 @@ Template.forum.stickyThreads = ->
   threads = Threads.find
     _id:
       $in: forum.stickies
-  appendUsers threads.fetch()
+  collection = threads.fetch()
+  return [] if collection.length is 0
+  orderedThreads = []
+  for stickyId in forum.stickies
+    picked = _.find collection, (c) ->
+      c._id is stickyId
+    orderedThreads.push picked if picked
+  appendUsers orderedThreads
 
 Template.forum.threads = ->
   forum = Session.get "forum"
@@ -20,7 +27,9 @@ Template.forum.threads = ->
   ,
     sort:
       createdAt: -1
-  appendUsers threads.fetch()
+  collection = threads.fetch()
+  return [] if collection.length is 0
+  appendUsers collection
 
 Template._thread.events = 
   "click .user-link": (event) ->

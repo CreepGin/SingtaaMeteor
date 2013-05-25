@@ -40,7 +40,7 @@ Meteor.methods
       id = data.id
     else
       #insert new thread
-      data.updatedAt = data.createdAt = data.viewedAt = new Date()
+      data.updatedAt = data.createdAt = data.viewedAt = data.repliedAt = new Date()
       data.views = data.replies = data.upVotes = data.downVotes = 0
       data.userId = this.userId
       data.type = "regular" #other types: "deleted", "sticky"

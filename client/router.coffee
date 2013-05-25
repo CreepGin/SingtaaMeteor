@@ -25,6 +25,7 @@ Meteor.Router.add
     forum = Forums.findOne
       slug: slug
     Session.set "forum", forum
+    log forum
     return "forums" unless forum
     Meteor.subscribe "stickyThreads", forum.slug
     Meteor.subscribe "threads", forum.slug, 0, GLOBAL.FORUM_THREADS_PER_PAGE
@@ -38,6 +39,7 @@ Meteor.Router.add
     "threadPost"
   "/thread/:id/:slug": (id) ->
     Meteor.subscribe "thread", id
+    Session.set "threadId", id
     "thread"
 
   "/roadmap": "roadmap"

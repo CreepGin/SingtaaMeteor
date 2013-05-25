@@ -1,5 +1,9 @@
 <template name="forum">
   <div class="forum common-page">
+    <ul class="breadcrumb">
+      <li><a href="/forums">Forums</a> <span class="divider">/</span></li>
+      <li class="active">{{forum.name}}</li>
+    </ul>
     <div class="post-btn">
       <a href="/forum/{{forum.slug}}/post/"><button class="btn btn-main">New Thread</button></a>
     </div>
