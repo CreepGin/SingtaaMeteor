@@ -1,8 +1,8 @@
 class @PublishHelper
 
-  @getUsersForCursor: (collection) ->
+  @getUsersForCursor: (cursor) ->
     userIds = []
-    collection.forEach (c) ->
+    cursor.forEach (c) ->
       userIds.push c.userId
     Meteor.users.find
       _id:

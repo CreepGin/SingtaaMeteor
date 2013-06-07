@@ -2,6 +2,18 @@
   <div class="span2 module-controls">
     {{#isolate}}
     {{> userside}}
+    {{#if_ps "score"}}
+    {{#with score}}
+    <div class="score-stats">
+      <ul>
+        <li><strong>{{getDateStr createdAt}}</strong></li>
+        <li>{{upVotes}} {{t "Ups"}}</li>
+        <li>{{downVotes}} {{t "Downs"}}</li>
+        <li>{{views}} {{t "Views"}}</li>
+      </ul>
+    </div>
+    {{/with}}
+    {{/if_ps}}
     {{/isolate}}
     {{#isolate}}
     {{#if isEditableScore}}
@@ -11,6 +23,12 @@
         <input id="public" type="checkbox" checked />
       </div>
     </div>
+    {{else}}
+      {{#if isMyScore}}
+      <div class="controls">
+        <a href="/compose/{{score._id}}"><button class="btn btn-main">Edit</button></a>
+      </div>
+      {{/if}}
     {{/if}}
     {{/isolate}}
   </div>
@@ -28,12 +46,12 @@
       <div class="info">
         <div class="input-prepend">
           <span class="add-on">Title:</span>
-          <input class="span8" id="title" type="text" placeholder="{{t "e.g. fur elise piano score"}}" value="{{myScore.title}}">
+          <input class="span8" id="title" type="text" placeholder="{{t "e.g. fur elise piano score"}}" value="{{score.title}}">
         </div>
-        <textarea class="span8" id="description" rows="3" placeholder="{{t "description"}}">{{myScore.description}}</textarea>
+        <textarea class="span8" id="description" rows="3" placeholder="{{t "description"}}">{{score.description}}</textarea>
         <div class="input-prepend">
           <span class="add-on">Tags:</span>
-          <input class="span8" id="tags" type="text" placeholder="{{t "comma (\",\") separated"}}" value="{{tags2str myScore.tags}}">
+          <input class="span8" id="tags" type="text" placeholder="{{t "comma (\",\") separated"}}" value="{{tags2str score.tags}}">
         </div>
       </div>
       {{/if}}
@@ -67,11 +85,11 @@
       {{#isolate}}
       {{#unless isEditableScore}}
       <div class="info-nonedit">
-        <h4 class="title">{{myScore.title}}</h4>
-        <p class="description">{{myScore.description}}</p>
+        <h4 class="title">{{score.title}}</h4>
+        <p class="description">{{score.description}}</p>
         <div class="tags">
           <span>Tags:</span>
-          {{#each myScore.tags}}
+          {{#each score.tags}}
           <a href="/tag/{{this}}">{{this}}</a>
           {{/each}}
         </div>

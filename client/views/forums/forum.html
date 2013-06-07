@@ -4,6 +4,7 @@
       <li><a href="/forums">Forums</a> <span class="divider">/</span></li>
       <li class="active">{{forum.name}}</li>
     </ul>
+    {{> msg msg}}
     <div class="post-btn">
       <a href="/forum/{{forum.slug}}/post/"><button class="btn btn-main">New Thread</button></a>
     </div>
@@ -27,7 +28,7 @@
         {{#if $eq type "sticky"}}
         <span class="sticky">Sticky</span>
         {{/if}}
-        <a href="/thread/{{_id}}/{{slugifyText title}}/">{{title}}</a>
+        <a href="/thread/{{_id}}/{{slugifyText title}}/" class="{{#if $eq type "deleted"}}deleted{{/if}}">{{title}}</a>
       </h4>
       <div class="meta">by <a class="user-link" href="/user/{{user.username}}">{{user.username}}</a>, {{timeAgo createdAt}}</div>
     </div>

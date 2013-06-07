@@ -1,4 +1,6 @@
 
+Template.forum.msg = ->
+  Session.get "msg"
 
 Template.forum.forum = ->
   Session.get "forum"

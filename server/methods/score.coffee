@@ -43,7 +43,7 @@ Meteor.methods
       Scores.update 
         _id: data.id
       ,
-        $set: data
+        $set: _.omit data, "id"
       return data.id
 
     data.updatedAt = data.createdAt = data.viewedAt = data.commentedAt = new Date()

@@ -4,11 +4,23 @@ Handlebars.registerHelper "selected", (val, option) ->
 
 #Useful for checking session variables in templates
 Handlebars.registerHelper "if_session", (name, options) ->
-  return options.fn(Session.get(name))  if Session.get(name)
-  ""
+  val = Session.get(name)
+  return options.fn(val) if val
+  options.inverse(val);
 
 Handlebars.registerHelper "get_session", (name, field) ->
   obj = Session.get name
+  if field and typeof obj is not "string"
+    obj = _.nestedValue(obj, field)
+  obj
+
+Handlebars.registerHelper "if_ps", (name, options) ->
+  val = PS.get(name)
+  return options.fn(val) if val
+  options.inverse(val);
+
+Handlebars.registerHelper "get_ps", (name, field) ->
+  obj = PS.get name
   if field and typeof obj is not "string"
     obj = _.nestedValue(obj, field)
   obj
@@ -52,4 +64,7 @@ Handlebars.registerHelper "formatNumber", (number) ->
   accounting.formatNumber number
 
 Handlebars.registerHelper "slugifyText", (text) ->
-  text.replace(/[ ]+/gi, "-").replace(/[%&@\?'"\/=]/gi, "")
+  slugifyText text
+
+Handlebars.registerHelper "marked", (options) ->
+  marked(options.fn(this))

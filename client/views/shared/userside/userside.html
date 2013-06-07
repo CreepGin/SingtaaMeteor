@@ -16,18 +16,6 @@
         <a href="javascript: void(0);" class="sign-in">{{t "Sign In"}}</a>
       </div>
       {{/if}}
-      {{#if_session "myScore"}}
-      {{#with myScore}}
-      <div class="score-stats">
-        <ul>
-          <li><strong>{{getDateStr createdAt}}</strong></li>
-          <li>{{upVotes}} {{t "Ups"}}</li>
-          <li>{{downVotes}} {{t "Downs"}}</li>
-          <li>{{views}} {{t "Views"}}</li>
-        </ul>
-      </div>
-      {{/with}}
-      {{/if_session}}
     </div>
   </div>
 </template>

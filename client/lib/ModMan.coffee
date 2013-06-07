@@ -85,9 +85,10 @@ class @ModMan
           tempo: parseInt ModMan.config.tempo
           beat: parseInt ModMan.config.beat
         public: $("#public").is(':checked')
+      score = PS.get("score")
+      if score and score._id
+        data.id = score._id
       log data
-      myScoreId = Session.get("myScoreId")
-      data.id = myScoreId if myScoreId
       Meteor.call "saveScore", data, (error, id) ->
         if error
           Session.set "msg", 
@@ -142,7 +143,7 @@ class @ModMan
     ModMan.editor = CodeMirror.fromTextArea(document.getElementById("notes-editor"), {})
     hlLine = ModMan.editor.addLineClass(0, "background", "activeline")
     ModMan.editor.on "cursorActivity", ModMan.redrawTab
-    ModMan.editor.focus()
+    #ModMan.editor.focus()
     $(".CodeMirror").on "click", ->
       ModMan.editor.focus()
     $(".CodeMirror").resizable
@@ -156,7 +157,7 @@ class @ModMan
     ModMan.config.tempo = parseInt $("#tempo").attr("rel")
     ModMan.config.beat = parseInt $("#beat").attr("rel")
 
-    ModMan.editor.focus()
+    #ModMan.editor.focus()
 
   @observeUnity: ->
     ModMan.unity.observeProgress (progress) ->

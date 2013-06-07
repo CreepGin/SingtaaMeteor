@@ -1,4 +1,9 @@
 {
+  "admin": {
+    "username": "CreepGin",
+    "password": "20000724",
+    "email": "st0724@gmail.com"
+  },
   "public": {
     "mode": "production"
   }

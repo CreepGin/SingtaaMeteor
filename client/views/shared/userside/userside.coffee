@@ -2,10 +2,11 @@ Template.userside.rendered = ->
   ""
 
 Template.userside.user = ->
-  Session.get "usersideUser"
-
-Template.userside.myScore = ->
-  Session.get "myScore"
+  user = Meteor.users.findOne
+    _id: Session.get "sideUserId"
+  if user
+    user.email = user.emails[0].address
+  user
 
 Template.userside.events = 
   "click .sign-in": (event) ->
@@ -13,18 +14,3 @@ Template.userside.events =
     Meteor.setTimeout ->
       $("#login-username-or-email").focus()
     , 500
-
-Meteor.autorun ->
-  user = Meteor.user()
-  myScore = Session.get "myScore"
-  if myScore
-    userId = myScore.userId
-    Meteor.subscribe "user", userId
-    user = Meteor.users.findOne
-      _id: userId
-  if user
-    Session.set "usersideUser", 
-      username: user.username
-      email: user.emails[0].address
-  else
-    Session.set "usersideUser", null

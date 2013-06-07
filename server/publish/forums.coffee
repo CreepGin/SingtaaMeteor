@@ -44,3 +44,14 @@ Meteor.publish "thread", (id) ->
   threads = Threads.find
     _id: id
   return [ threads, PublishHelper.getUsersForCursor(threads) ]
+
+Meteor.publish "replies", (threadId, skip, limit) ->
+  replies = Replies.find
+    threadId: threadId
+  ,
+    sort:
+      createdAt: 1
+    skip: skip
+    limit: limit
+  return [ replies, PublishHelper.getUsersForCursor(replies) ]
+

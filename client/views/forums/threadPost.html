@@ -1,6 +1,14 @@
 <template name="threadPost">
   <div class="threadPost common-page">
-    <h3>{{t "Create a New Thread"}} - <a href="/forum/{{forum.slug}}/">{{t forum.name}}</a></h3>
+    <h3>
+      {{#if_ps "thread"}}
+        {{t "Edit Thread"}}
+      {{else}}
+        {{t "Create a New Thread"}}
+      {{/if_ps}}
+      - 
+      <a href="/forum/{{forum.slug}}/">{{t forum.name}}</a>
+    </h3>
     <div class="holder">
       <div class="input-prepend">
         <span class="add-on">{{t "Title"}}:</span>
@@ -10,22 +18,18 @@
       <div class="preview-divider panel-text">Preview:</div>
       <div>
         {{#isolate}}
-        {{#markdown}}
-        {{get_session "threadPreview"}}
-        {{/markdown}}
+        {{#marked}}{{{get_ps "threadPreview"}}}{{/marked}}
         {{/isolate}}
       </div>
     </div>
     <div class="buttons">
-      <button class="btn btn-main save">{{t "Save Thread"}}</button>
-      <a href="/forum/{{forum.slug}}/"><button class="btn">{{t "Discard"}}</button></a>
+      {{#if_ps "thread"}}
+        <button class="btn btn-main save">{{t "Save Thread"}}</button>
+        <button class="btn btn-main delete">{{t "Delete"}}
+      {{else}}
+        <button class="btn btn-main save">{{t "Post Thread"}}</button>
+      {{/if_ps}}
     </div>
-    {{#isolate}}
-    {{#with msg}}
-    <div class="alert alert-block alert-{{type}} fade in">
-      <p>{{t text}}</p>
-    </div>
-    {{/with}}
-    {{/isolate}}
+    {{> msg msg}}
   </div>
 </template>

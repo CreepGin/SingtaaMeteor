@@ -1,6 +1,9 @@
 Meteor.subscribe "allScores"
 Meteor.subscribe "allUserData"
 
+Template.home.init = ->
+  Session.set "sideUserId", Meteor.userId()
+
 Template.home.mostViewed = ->
   Scores.find {},
     sort:

@@ -1,7 +1,27 @@
+//Log in styling
+.login-link-and-dropdown-list
+  //font-weight bold
+#login-buttons .login-button, .accounts-dialog .login-button
+  background-color: white;
+  background-image: -moz-linear-gradient(top, #C9A5A5, #955959);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#C9A5A5), to(#955959));
+  background-image: -webkit-linear-gradient(top, #C9A5A5, #955959);
+  background-image: -o-linear-gradient(top, #C9A5A5, #955959);
+  background-image: linear-gradient(to bottom, #C9A5A5, #955959);
+
+#login-buttons .login-button:hover, .accounts-dialog .login-button:hover
+  background-color: white;
+  background-image: -moz-linear-gradient(top, #955959, #C9A5A5);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#955959), to(#C9A5A5));
+  background-image: -webkit-linear-gradient(top, #955959, #C9A5A5);
+  background-image: -o-linear-gradient(top, #955959, #C9A5A5);
+  background-image: linear-gradient(to bottom, #955959, #C9A5A5);
+  
+
 //Bootstrap
 button.btn
   border-radius: 2px;
-.btn-main 
+.btn-main, .btn-primary
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #CC0000;
@@ -13,7 +33,7 @@ button.btn
   background-repeat: repeat-x;
   border-color: #D64700 #D64700 #802400;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  &:hover
+  &:hover, &:focus
     color: #ffffff;
     background-color: #D64700;
 .modal .modal-header 
@@ -22,9 +42,12 @@ button.btn
 .breadcrumb
   border: none
   margin: 0
+  margin-bottom: 8px
   background-color: transparent
   padding: 0
   box-shadow: none
+.alert
+  margin-bottom: 0
 
 //VexFlow
 .vex-tabdiv p
