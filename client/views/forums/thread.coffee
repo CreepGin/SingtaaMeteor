@@ -26,7 +26,18 @@ Template.thread.events =
   "click .reply-btn": (event) ->
     event.preventDefault()
     ele = $(event.target)
-    ele.popover
-      content: t "You need to be logged in first."
-      trigger: "manual"
-    ele.popover "show"
+    if not Meteor.userId()
+      ele.popover
+        content: t "You need to be logged in first."
+        trigger: "manual"
+      ele.popover "show"
+    else
+      $("#replyBody").val("")
+      $("#replyModal").modal("show")
+      $("#replyModal").off("shown").on "shown", ->
+        $("#replyBody").focus()
+  "click .save-reply": (event) ->
+    event.preventDefault()
+    ele = $(event.target)
+    log "save"
+    ""

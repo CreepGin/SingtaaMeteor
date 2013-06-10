@@ -1,7 +1,8 @@
 Template.nav.rendered = ->
   $('.has-title').tooltip
     container: "body"
-    
+  $('.has-title').tooltip "hide"
+
 Template.nav.navLinks = ->
   links = [
     name: "scores"

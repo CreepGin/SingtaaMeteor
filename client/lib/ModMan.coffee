@@ -31,7 +31,14 @@ class @ModMan
       aria.attr "rel", ModMan.config[idName]
       ModMan.redrawTab()
     "click .convert-xml": (event) ->
+      event.preventDefault()
+      $(".unity-player embed").remove() #temperarily disable unity player
       $('#myModal').modal()
+      $("#myModal").off("shown").on "shown", ->
+        $("#modal-textarea").focus()
+      $("#myModal").off("hidden").on "hidden", ->
+        $("#modal-textarea").val("")
+        ModMan.setupUnity()
       $('#myModal .btn-main').off("click").on "click", ->
         xml = $("#modal-textarea").val()
         res = ScoreMan.convertMusicXML xml
@@ -44,10 +51,6 @@ class @ModMan
         ModMan.updateEditor()
         ModMan.redrawTab()
         $('#myModal').modal('hide')
-        $("#modal-textarea").val("")
-      Meteor.setTimeout ->
-        $('#modal-textarea').focus()
-      , 1000
     "click #play": (event) ->
       ModMan.play()
     "click .score .icon-chevron-left": (event) ->
@@ -167,6 +170,8 @@ class @ModMan
         when "missing", "broken"
           $(".unity-player").html($(".broken-unity").clone())
           $(".unity-player .broken-unity").removeClass("hidden")
+          $('.has-title').tooltip
+            container: "body"
           ""
         when "first"
           Meteor.setTimeout ->
