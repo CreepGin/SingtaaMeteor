@@ -9,6 +9,7 @@
       <a href="/forum/{{forum.slug}}/post/"><button class="btn btn-main">New Thread</button></a>
     </div>
     <h3>{{forum.name}}</h3>
+    {{> pagination pagingData}}
     <div class="holder">
       {{#each stickyThreads}}
       {{> _thread this}}
@@ -23,7 +24,7 @@
 <template name="_thread">
   <div class="thread {{#if $eq type "sticky"}}sticky{{/if}}">
     <div class="inner">
-      <span class="badge pull-right">{{replies}}</span>
+      <span class="badge pull-right has-title" title="{{t "Replies"}}">{{replies}}</span>
       <h4>
         {{#if $eq type "sticky"}}
         <span class="sticky">Sticky</span>

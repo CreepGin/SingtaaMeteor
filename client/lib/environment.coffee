@@ -1,6 +1,7 @@
 #Setups
 @GLOBAL = 
-  FORUM_THREADS_PER_PAGE: 30
+  FORUM_THREADS_PER_PAGE: 5
+  FORUM_REPLIES_PER_PAGE: 3
 
 @PS = new PageStore("home")
 

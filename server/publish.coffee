@@ -20,6 +20,8 @@ Meteor.publish "user", (id) ->
       'createdAt': 1
       'emails': 1
       'username': 1
+      'profile': 1
+      'meta': 1
 
 Meteor.publish "my-user", ->
   Meteor.users.find 
@@ -29,6 +31,8 @@ Meteor.publish "my-user", ->
       'createdAt': 1
       'emails': 1
       'username': 1
+      'profile': 1
+      'meta': 1
 
 Meteor.publish "allScores", ->
   Scores.find({})

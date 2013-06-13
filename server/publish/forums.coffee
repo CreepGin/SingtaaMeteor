@@ -23,13 +23,12 @@ Meteor.publish "stickyThreads", (forumSlug) ->
       'type': 1
   return [ threads, PublishHelper.getUsersForCursor(threads) ]
 
-Meteor.publish "threads", (forumSlug, skip, limit) ->
+Meteor.publish "threads", (forumSlug, limit) ->
   threads = Threads.find
     forumSlug: forumSlug
   ,
     sort:
-      createdAt: -1
-    skip: skip
+      repliedAt: -1
     limit: limit
   ,
     fields: 
@@ -43,15 +42,14 @@ Meteor.publish "threads", (forumSlug, skip, limit) ->
 Meteor.publish "thread", (id) ->
   threads = Threads.find
     _id: id
-  return [ threads, PublishHelper.getUsersForCursor(threads) ]
+  return [ threads, PublishHelper.getUsersForCursors([threads]) ]
 
-Meteor.publish "replies", (threadId, skip, limit) ->
+Meteor.publish "replies", (threadId, limit) ->
   replies = Replies.find
     threadId: threadId
   ,
     sort:
       createdAt: 1
-    skip: skip
     limit: limit
   return [ replies, PublishHelper.getUsersForCursor(replies) ]
 

@@ -5,12 +5,14 @@
     {{#if_ps "score"}}
     {{#with score}}
     <div class="score-stats">
+      {{#constant}}
       <ul>
         <li><strong>{{getDateStr createdAt}}</strong></li>
         <li>{{upVotes}} {{t "Ups"}}</li>
         <li>{{downVotes}} {{t "Downs"}}</li>
         <li>{{views}} {{t "Views"}}</li>
       </ul>
+      {{/constant}}
     </div>
     {{/with}}
     {{/if_ps}}

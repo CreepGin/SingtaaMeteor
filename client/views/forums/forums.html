@@ -17,15 +17,7 @@
             <div>
               <span>
                 {{#if thread}}
-                {{timeAgo thread.createdAt}}
-                {{/if}}
-              </span>
-              <span>
-                {{t "by"}}:
-                {{#if thread.user}}
-                <a href="/user/{{thread.user.username}}">{{thread.user.username}}</a>
-                {{else}}
-                --
+                {{timeAgo thread.repliedAt}}
                 {{/if}}
               </span>
             </div>

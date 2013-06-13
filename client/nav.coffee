@@ -2,6 +2,7 @@ Template.nav.rendered = ->
   $('.has-title').tooltip
     container: "body"
   $('.has-title').tooltip "hide"
+  $(".tooltip").remove()
 
 Template.nav.navLinks = ->
   links = [

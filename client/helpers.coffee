@@ -68,3 +68,8 @@ Handlebars.registerHelper "slugifyText", (text) ->
 
 Handlebars.registerHelper "marked", (options) ->
   marked(options.fn(this))
+
+Handlebars.registerHelper "null2zero", (text) ->
+  unless text
+    return 0
+  return text

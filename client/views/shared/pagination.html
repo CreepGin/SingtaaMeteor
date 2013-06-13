@@ -1,0 +1,11 @@
+<template name="pagination">
+  <div class="pagination">
+    <ul>
+      <li class="prev {{#if $eq index "1"}}disabled{{/if}}"><a href="#">&laquo;</a></li>
+      {{#each pageLinks}}
+      <li class="{{type}}"><a class="paging-link" href="{{index}}">{{index}}</a></li>
+      {{/each}}
+      <li class="next {{#if $eq index total}}disabled{{/if}}"><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+</template>

@@ -16,6 +16,7 @@
   for c in collection
     c.user = Meteor.users.findOne
       _id: c.userId
+    c.user.email = c.user.emails[0].address
   collection
 
 #Turns text into url-friendly

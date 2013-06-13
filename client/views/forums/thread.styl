@@ -12,8 +12,53 @@
     .pagination
       float: right
       margin: 0
-  .holder
-    box-shadow: none
-    padding: 10px
+  .content-holder
+    border: 1px solid #bbb
+    .holder
+      box-shadow: none
+      padding: 10px
+      border: none
+      .user-panel
+        float: left
+        width: 190px
+        .avatar
+          float: left
+          img
+            box-shadow: 0 0 6px rgba(0,0,0,0.2)
+        .user-info
+          font-size: 12px
+          margin-left: 90px
+          .username
+            font-size: 14px
+            font-weight: bold
+      .body
+        margin-left: 200px
+        .controls
+          float: right
+          margin-top: -4px
+          margin-right: -4px
+          .label
+            padding: 0 4px
+            opacity: 0.9
+            cursor: pointer
+            i 
+              vertical-align: -3px
+            &:hover
+              opacity: 1.0
+    .reply 
+      border-top: 1px solid #bbb
+      &:first-child
+        border-top: none
   i
     opacity: 1.0 !important
+#replyModal
+  #replyBody
+    width: 100%
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  .alert
+    margin-bottom: 14px
+  .preview-holder
+    max-height: 200px
+    overflow: scroll
